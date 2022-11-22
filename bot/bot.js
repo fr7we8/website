@@ -7,11 +7,12 @@ let init = 0
 
 const botSay = (data) => {
   return [
-    "Perkenalkan nama saya F1KR7.BOT nama lu siapa?",
-    `Hlo ${data?.nama}, dimana rumahnya?`,
-    `Ohhh rumah lu di ${data?.usia}, umur lu brapa?`,
-    `Oo umur lu ${data?.hobi}, btw punya pacar gak?`,
-    `ohhh ${data?.pacar}, ya udah kalau gitu. udah ya bro`,
+    "Perkenalkan nama saya F1KR7.BOT siapa nama kamu?",
+    `Halo ${data?.nama}, rumah lu dimana?`,
+    `Ohhh loe tinggal di ${data?.rumah}, btw lu cowo/cewe?`,
+    `Oh kamu ${data?.kelamin}, btw punya pacar gak?`,
+    `ohhh ${data?.pacar}, Umur lu berapa coy?`,
+    `Ohhh umur lu ${data?.umur}, Tengs ya udah mau gunain FikriBOT`,
   ]
 }
 
@@ -20,17 +21,20 @@ pertanyaan.innerHTML = botSay()[0]
 let usersData = []
 
 function botStart() {
-  if (jawaban.value.length < 1) return alert("isi jawaban dlu ngentod")
+  if (jawaban.value.length < 1) return alert("ISI JAWABAN DULU NGENTOD")
   init++
   if (init === 1) {
     botDelay({ nama: jawaban.value })
   } else if (init === 2) {
-    botDelay({ usia: jawaban.value })
+    botDelay({ rumah: jawaban.value })
   } else if (init === 3) {
-    botDelay({ hobi: jawaban.value })
+    botDelay({ kelamin: jawaban.value })
   } else if (init === 4) {
     botDelay({ pacar: jawaban.value })
   } else if (init === 5) {
+    
+        botDelay({ umur: jawaban.value })
+      } else if (init === 6) {
     finishing()
   } else {
     botEnd()
@@ -50,13 +54,13 @@ function botDelay(jawabanUser) {
 }
 
 function finishing() {
-  pertanyaan.innerHTML = `Tengs bro ${usersData[0]} udah main ke F1KR7.BOT 😉, kali-kali kita main bareng ya!`
-  jawaban.value = "Ok banhj"
+  pertanyaan.innerHTML = `Tengs ${usersData[0]} udah main ke FikriBOT 😉, jan lupa ${usersData[2]} diser ya anj!`
+  jawaban.value = "Ok Banhj"
 }
 
 function botEnd() {
   alert(
-    `Hai ${usersData[0]} tengs ya udah berkunjung, anda akan diarahkan ke halaman utama.`
+    `Tengs ya bro ${usersData[0]} sudah berkunjung, anda akan diarahkan ke halaman utama.`
   )
   window.location.reload()
 }
